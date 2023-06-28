@@ -65,6 +65,7 @@ def newMasterKey():
         print("Key file contents:\nUser ID:", pUser, '\nMaster password:', '*' * len(pPass)) 
         print("hold on tight, reloading...")
         time.sleep(2)  
+        
 def verify():
     global fileCode,userId, postKey
     userId = input("Write your user id: ")
@@ -78,10 +79,10 @@ def verify():
         print("Redirecting to main menu in a few seconds...")
         time.sleep(1)
         os.system('clear||cls')
+        return False
     else:
         with open("key.key", "rb") as keys:
             while True:
-                
                 try:
                     obj = pickle.load(keys)
                     for info in obj:
@@ -100,8 +101,9 @@ def verify():
                                 postKey = Fernet(key2)
                                 return userId, postKey, fileCode
                 except EOFError:
-                    print("User ID or password is incorrect, Try again... \n\n\n")           
-                    verify()
+                    print("User ID or password is incorrect, Try again... \n\n\n")        
+                    time.sleep(1)   
+                    return False
 
 def view():
     '''{'checkFile': fileCode, 'check': userId, 'file': ['file1.txt', 'file2.txt']}    '''
@@ -119,7 +121,6 @@ def view():
                     data = item['file']
                     # Decrypt the data and print it in a tabular format
                     file = [list(map(postKey.decrypt, sublist)) for sublist in data]
-                    print(file)
                     print("__|_________________|______________________|_______________|__")
                     print("  |account type     | username/E-mail      | password      |")
                     print("  |-----------------|----------------------|---------------|")
@@ -159,20 +160,19 @@ def add():
             break
         with open('password.bin', 'wb') as update:
             pickle.dump(openF, update)
-        print("\n\nhey" , userId + "! \nEntry added successfully, to add another entry press (E) or press (q) to go to main menu")
-        while True:
-            if input().lower()== 'e':
-                add()
-            elif input().lower()=='q':
-                print('redirecting to the main menu')
-                time.sleep(2)
-                os.system('clear')
-                break
-            else:
-                print('incorrect key pressed, try again..')
-                time.sleep(2)
-                os.system('clear||cls')
-                continue
+        print("\nhey" , userId + "! \n")
+        value= input("Entry added successfully, to add another entry press (E) or press (q) to go to main menu: ")
+        if value.lower()== 'e':
+            add()
+        elif value.lower()=='q':
+            print('redirecting to the main menu')
+            time.sleep(2)
+            os.system('clear||cls')
+        else:
+            print('incorrect key pressed, try again..')
+            time.sleep(2)
+            os.system('clear||cls')
+            return False
                 
     elif input() == 't':
         print("Try again...")
@@ -181,9 +181,10 @@ def add():
     elif input().lower()== 'q':
                 print('redirecting to the main menu')
                 time.sleep(2)
-                os.system('clear')
+                os.system('clear||cls')
     else:
         print('incorrect key pressed, try again..')
         time.sleep(1)
         os.system('clear||cls')
         add() 
+        
