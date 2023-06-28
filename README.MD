@@ -8,13 +8,12 @@ The project provides a basic password manager functionality. It allows users to 
                       custom decryption technique.
 4. Adding Passwords: Authenticated users can add new passwords to the password manager. The entered account details are encrypted using the master key and 
                      stored for future retrieval.
+It can be experimented using the [link](https://replit.com/@cosmos1721/passwordmanager?v=1)
 
 ## Installation and usage
 ### Pre-requisites:
-python/python3 to be installed on the computer. For installations, refer www.https://www.python.org/downloads/ (for both windows  and linux)
-### Linux 
-1. Open Terminal and use the following command:
-    
+python/python3 to be installed on the computer. For installations, refer [python.org](www.https://www.python.org/downloads)
+Open Terminal and use the following command:
     git clone https://www.github.com/cosmos1721/password_manager && cd password_manager
     python3 password_manager.py
 ## Conclusion
