@@ -12,7 +12,8 @@ It can be experimented using the [link](https://replit.com/@cosmos1721/passwordm
 
 ## Installation and usage
 ### Pre-requisites:
-python/python3 to be installed on the computer. For installations, refer [python.org](www.https://www.python.org/downloads)
+python/python3 to be installed on the computer. For installations, refer [python](www.https://www.python.org/downloads)
+
 Open Terminal and use the following command:
     git clone https://www.github.com/cosmos1721/password_manager && cd password_manager
     python3 password_manager.py
