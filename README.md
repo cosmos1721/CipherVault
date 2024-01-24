@@ -1,4 +1,4 @@
-# Password-manager
+# CipherVault
 The project provides a basic password manager functionality. It allows users to securely store and manage their passwords by encrypting and storing them locally on their machine. The program provides the following features:
 
 1. Creation of a Master Key: Each user can create a new master key by providing a user ID and a master password. The master key is used for 
